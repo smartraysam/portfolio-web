@@ -1,4 +1,5 @@
 import { engineerBio, portfolioProjects, learningRadar, tilNotes } from '../data/portfolioData';
+import { blogPosts } from '../data/blogData';
 
 export function getSystemPrompt(): string {
   const projectsSummary = portfolioProjects.map(p => `
@@ -21,7 +22,12 @@ ${p.architecture.challenges.map(c => `  * Challenge: ${c.problem} -> Solution: $
 - ${r.name} (${r.category}) [Status: ${r.status}, Level: ${r.level}%]: ${r.description} | Recent Milestone: ${r.recentMilestone}
 `).join('\n');
 
-  const tilSummary = tilNotes.map(t => `
+  const blogSummary = blogPosts.map(b => `
+- [${b.category}] "${b.title}": ${b.subtitle} (URL: /blog/${b.slug}, Read Time: ${b.readTime})
+  Key Takeaways: ${b.keyTakeaways.slice(0, 2).join('; ')}
+`).join('\n');
+
+    const tilSummary = tilNotes.map(t => `
 - [${t.date}] ${t.title}: ${t.summary} (Production Impact: ${t.impact})
 `).join('\n');
 
@@ -81,6 +87,9 @@ ${radarSummary}
 
 ### TODAY I LEARNED (TIL) BREAKTHROUGHS:
 ${tilSummary}
+
+### PUBLISHED TECHNICAL BLOG POSTS & ARCHITECTURE DISPATCHES:
+${blogSummary}
 
 Respond in concise, well-formatted Markdown with clean bullet points. When referencing projects, include their names and production URLs.`;
 }
