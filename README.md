@@ -20,7 +20,6 @@ Unlike standard static portfolios, this application is engineered as a **deep te
 - **Continuous Tech Radar & Today-I-Learned (TIL)** knowledge repository.
 - **In-Depth Engineering Blog Engine** discussing distributed caching, PgVector RAG, AWS cost optimization, and kernel-level desktop tuning.
 - **Futuristic Glassmorphic Dark UI** with ambient radial glows, smooth micro-animations, and responsive layout.
-
 ---
 
 ## 🛠️ Architecture & Tech Stack
